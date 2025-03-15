@@ -15,7 +15,7 @@ export default function ContactFooter() {
         >
           <RainbowButton className="w-full">Get In Touch</RainbowButton>
         </Link>
-        <Link href="/public/files/my_resume" className="w-full sm:w-[45%]">
+        <Link href="/public/files/my_resume.pdf" className="w-full sm:w-[45%]">
           <RainbowButton className="w-full">Download Resume</RainbowButton>
         </Link>
       </div>
