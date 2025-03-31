@@ -24,6 +24,7 @@ export const metadata: Metadata = {
     "Node.js",
     "Backend Developer",
     "Frontend Developer",
+    "github"
     "Typescript",
     "Javascript",
     "wordpress",
