@@ -11,7 +11,7 @@ export const DATA = {
     "Full-stack web developer, skilled in React, Next.js, Node.js, and Express.js. Passionate about building scalable web solutions and improving user experiences. Experienced in developing custom websites and web applications for clients, focusing on responsive design and accessibility. ",
   summary:
     "Former restaurant server and expeditor. In 2023 went to full-stack coding bootcamp at Rutgers University, and traded serving food for serving code, managing an expo line for managing API endpoints, and creating a great dining experience for creating a great user experience. I'm a full-stack web developer, skilled in React, Next.js, Node.js, and Express.js. I'm passionate about building scalable web solutions and improving user experiences. I have experience developing custom websites and web applications for clients, focusing on responsive design and accessibility.",
-  avatarUrl: "/me.jpg",
+  avatarUrl: "/me.png",
   skills: [
     "React",
     "Next.js",
