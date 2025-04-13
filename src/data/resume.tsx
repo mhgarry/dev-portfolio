@@ -122,33 +122,33 @@ export const DATA = {
           icon: <Icons.globe className="size-3" />,
         },
       ],
-      image: "/tasks.png",
-      video: "",
+      image: "",
+      video: "/tasks.mp4",
     },
     {
-      title: "Flix: Video Streamer",
-      href: "https://flix-videos.herokuapp.com/",
-      active: true,
-      description:
-        "Flix was my first full MERN stack project, built during my coding bootcamp in a week-long team assignment. It’s a video streaming app where users can create accounts, log in, and search for videos. Built with React, GraphQL, and CSS, it was my first experience with both React and GraphQL, making it a valuable learning opportunity. A key challenge I overcame was deploying the app to Heroku—after hours of troubleshooting, I successfully deployed it on the final day, a defining moment in my journey as a developer.",
+       title: "Posh Punk: Digital Emporium",
+       href: "https://github.com/mhgarry/posh_punk_dev",
+       active: true,
+       description:
+         "Posh Punk: Digital Emporium, is a passion project I'm making as a custom cms and e-shop for my fiancee. It's in development with no production deployment yet It showcases my Next.js, Typescript, Express.js skills among more.",
       technologies: [
         "React",
+        "Next.js",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
         "TailwindCSS",
         "Node.js",
-        "GraphQL",
-        "MongoDB",
-        "Apollo",
-        "Youtube API",
       ],
       links: [
         {
-          type: "Website",
-          href: "https://flix-videos.herokuapp.com/",
+          type: "E-commerce Platform",
+          href: "https://github.com/mhgarry/posh_punk_dev",
           icon: <Icons.globe className="size-3" />,
         },
       ],
-      image: "/flix.png",
-      video: "",
+      image: "",
+      video: "/posh_punk.mp4",
     },
     {
       title: "WriteMyReadme",
@@ -168,10 +168,10 @@ export const DATA = {
       video: "",
     },
     {
-      title: "Yoran Imaging Website: JS/CSS Binary Matrix Animation",
-      href: "https://yoran-imaging.com/",
+      title: "Integra Managment Corp.: My first site with Wordpress and builders",
+      href: "https://www.integramanagementcorp.com",
       description:
-        "This project was a business-to-business website I built while working as a web developer at an agency. Using WordPress and Oxygen Builder—both new to me—I developed the site from scratch with only a landing page design. I ensured full responsiveness across devices and took creative initiative, adding a binary matrix effect and custom animations. This project was a great opportunity to showcase my frontend skills, and I’m proud of how it turned out.",
+        "This project was a business-to-business website I built while working as a web developer at an agency. Using WordPress and Oxygen Builder—both new to me—I developed the site from scratch, with an xd design to match. I ensured full responsiveness across devices and took creative initiative, adding bells and whistles in various places. This project was a great opportunity to showcase my frontend skills, and I’m proud of how it turned out.",
       technologies: [
         "HTML5",
         "CSS3",
@@ -182,12 +182,12 @@ export const DATA = {
       links: [
         {
           type: "Website",
-          href: "https://yoran-imaging.com/",
+          href: "https://www.integramanagementcorp.com",
           icon: <Icons.globe className="size-3" />,
         },
       ],
-      image: "/binary_matrix.png",
-      video: "",
+      image: "",
+      video: "/integra.mp4",
     },
   ],
 } as const;
