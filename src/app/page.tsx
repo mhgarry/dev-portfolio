@@ -9,6 +9,7 @@ import Link from "next/link";
 import Markdown from "react-markdown";
 import ContactFooter from "@/components/contact-buttons";
 import { IconCloudDisplay } from "@/components/skill-icon-cloud/cloud-display";
+import React from "react";
 
 const BLUR_FADE_DELAY = 0.04;
 
