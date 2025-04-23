@@ -8,6 +8,7 @@ import { Space_Grotesk as FontSans } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 
+
 const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
@@ -28,7 +29,9 @@ export const metadata: Metadata = {
     "Typescript",
     "Javascript",
     "wordpress",
-
+    "Website Developer",
+    "Application Developer",
+    "Website Designer",
     "software engineer",
   ],
   title: {
@@ -61,7 +64,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
   },
   verification: {
-    google: "",
+    google: process.env.GOOGLE_SITE_VERIFICATION,
     yandex: "",
   },
   icons: {
