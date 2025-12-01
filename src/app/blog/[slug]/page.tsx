@@ -1,107 +1,70 @@
-import { getBlogPosts, getPost } from "@/data/blog";
-import { DATA } from "@/data/resume";
-import { formatDate } from "@/lib/utils";
-import type { Metadata } from "next";
-import { notFound } from "next/navigation";
-import { Suspense } from "react";
+import fs from "fs";
+import matter from "gray-matter";
+import path from "path";
+import rehypePrettyCode from "rehype-pretty-code";
+import rehypeStringify from "rehype-stringify";
+import remarkGfm from "remark-gfm";
+import remarkParse from "remark-parse";
+import remarkRehype from "remark-rehype";
+import { unified } from "unified";
 
-export async function generateStaticParams() {
-  const posts = await getBlogPosts();
-  return posts.map((post) => ({ slug: post.slug }));
+type Metadata = {
+  title: string;
+  publishedAt: string;
+  summary: string;
+  image?: string;
+};
+
+function getMDXFiles(dir: string) {
+  return fs.readdirSync(dir).filter((file) => path.extname(file) === ".mdx");
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: {
-    slug: string;
-  };
-}): Promise<Metadata | undefined> {
-  let post = await getPost(params.slug);
+export async function markdownToHTML(markdown: string) {
+  const p = await unified()
+    .use(remarkParse)
+    .use(remarkGfm)
+    .use(remarkRehype)
+    .use(rehypePrettyCode, {
+      // https://rehype-pretty.pages.dev/#usage
+      theme: {
+        light: "min-light",
+        dark: "min-dark",
+      },
+      keepBackground: false,
+    })
+    .use(rehypeStringify)
+    .process(markdown);
 
-  let {
-    title,
-    publishedAt: publishedTime,
-    summary: description,
-    image,
-  } = post.metadata;
-  let ogImage = image ? `${DATA.url}${image}` : `${DATA.url}/og?title=${title}`;
+  return p.toString();
+}
 
+export async function getPost(slug: string) {
+  const filePath = path.join("content", `${slug}.mdx`);
+  let source = fs.readFileSync(filePath, "utf-8");
+  const { content: rawContent, data: metadata } = matter(source);
+  const content = await markdownToHTML(rawContent);
   return {
-    title,
-    description,
-    openGraph: {
-      title,
-      description,
-      type: "article",
-      publishedTime,
-      url: `${DATA.url}/blog/${post.slug}`,
-      images: [
-        {
-          url: ogImage,
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description,
-      images: [ogImage],
-    },
+    source: content,
+    metadata,
+    slug,
   };
 }
 
-export default async function Blog({
-  params,
-}: {
-  params: {
-    slug: string;
-  };
-}) {
-  let post = await getPost(params.slug);
-
-  if (!post) {
-    notFound();
-  }
-
-  return (
-    <section id="blog">
-      <script
-        type="application/ld+json"
-        suppressHydrationWarning
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BlogPosting",
-            headline: post.metadata.title,
-            datePublished: post.metadata.publishedAt,
-            dateModified: post.metadata.publishedAt,
-            description: post.metadata.summary,
-            image: post.metadata.image
-              ? `${DATA.url}${post.metadata.image}`
-              : `${DATA.url}/og?title=${post.metadata.title}`,
-            url: `${DATA.url}/blog/${post.slug}`,
-            author: {
-              "@type": "Person",
-              name: DATA.name,
-            },
-          }),
-        }}
-      />
-      <h1 className="title font-medium text-2xl tracking-tighter max-w-[650px]">
-        {post.metadata.title}
-      </h1>
-      <div className="flex justify-between items-center mt-2 mb-8 text-sm max-w-[650px]">
-        <Suspense fallback={<p className="h-5" />}>
-          <p className="text-sm text-neutral-600 dark:text-neutral-400">
-            {formatDate(post.metadata.publishedAt)}
-          </p>
-        </Suspense>
-      </div>
-      <article
-        className=""
-        dangerouslySetInnerHTML={{ __html: post.source }}
-      ></article>
-    </section>
+async function getAllPosts(dir: string) {
+  let mdxFiles = getMDXFiles(dir);
+  return Promise.all(
+    mdxFiles.map(async (file) => {
+      let slug = path.basename(file, path.extname(file));
+      let { metadata, source } = await getPost(slug);
+      return {
+        metadata,
+        slug,
+        source,
+      };
+    }),
   );
+}
+
+export async function getBlogPosts() {
+  return getAllPosts(path.join(process.cwd(), "content"));
 }
