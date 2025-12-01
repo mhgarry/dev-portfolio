@@ -4,11 +4,10 @@ publishedAt: "2025-03-14"
 summary: "Modern web applications are complex and vulnerable. Here is why I am mastering offensive security tools like Metasploit and Recon-ng to build bulletproof software."
 tags: ["Full-Stack Development", "AppSec", "Cyber Security", "Ethical Hacking", "Opsec", "DevSecOps", "Web App Security", "Python"]
 ---
-import Link from "next/link";
 
+import { CustomLink } from "../components/CustomLink";
 
 When I started coding, "Cyber Security" felt like a different world—a dark art practiced by people in hoodies in dimly lit rooms. But as I transitioned into professional Full-Stack engineering, I realized something critical: **Security isn't a feature you add at the end; it’s a mindset you start with.**
-
 
 We live in an era where data breaches destroy reputations and bottom lines. As a developer, I realized that if the software I build isn't secure, it isn't just "buggy"—it's a liability. I refuse to ship code that puts users or businesses at risk.
 
@@ -53,8 +52,9 @@ I am building a bridge between the creative world of development and the rigorou
 
 <>
     <p className="mt-6 text-sm">
-        See my <Link href="/#projects">projects</Link> or <Link href="mailto:matthewhgarry@gmail.com">contact me</Link>.
+        <CustomLink href="/#projects">See my</CustomLink>  or <CustomLink href="mailto:matthewhgarry@gmail.com">contact me</CustomLink>.
     </p>
+
 </>
 
 ---
