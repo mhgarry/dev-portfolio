@@ -25,9 +25,10 @@ export async function markdownToHTML(markdown: string) {
     .use(remarkGfm)
     .use(remarkRehype)
     .use(rehypePrettyCode, {
+      // https://rehype-pretty.pages.dev/#usage
       theme: {
-        light: "solarized-light",
-        dark: "solarized-dark",
+        light: "min-light",
+        dark: "min-dark",
       },
       keepBackground: false,
     })
@@ -60,7 +61,7 @@ async function getAllPosts(dir: string) {
         slug,
         source,
       };
-    })
+    }),
   );
 }
 
