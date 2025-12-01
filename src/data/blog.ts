@@ -15,11 +15,17 @@ type Metadata = {
   image?: string;
 };
 
-function getMDXFiles(dir: string) {
+type Post = {
+  metadata: Metadata;
+  slug: string;
+  source: string;
+};
+
+function getMDXFiles(dir: string): string[] {
   return fs.readdirSync(dir).filter((file) => path.extname(file) === ".mdx");
 }
 
-export async function markdownToHTML(markdown: string) {
+export async function markdownToHTML(markdown: string): Promise<string> {
   const p = await unified()
     .use(remarkParse)
     .use(remarkGfm)
@@ -38,10 +44,11 @@ export async function markdownToHTML(markdown: string) {
   return p.toString();
 }
 
-export async function getPost(slug: string) {
+export async function getPost(slug: string): Promise<Post> {
   const filePath = path.join("content", `${slug}.mdx`);
-  let source = fs.readFileSync(filePath, "utf-8");
-  const { content: rawContent, data: metadata } = matter(source);
+  const source = fs.readFileSync(filePath, "utf-8");
+  const { content: rawContent, data } = matter(source);
+  const metadata = data as Metadata;
   const content = await markdownToHTML(rawContent);
   return {
     source: content,
@@ -50,21 +57,21 @@ export async function getPost(slug: string) {
   };
 }
 
-async function getAllPosts(dir: string) {
-  let mdxFiles = getMDXFiles(dir);
+async function getAllPosts(dir: string): Promise<Post[]> {
+  const mdxFiles = getMDXFiles(dir);
   return Promise.all(
     mdxFiles.map(async (file) => {
-      let slug = path.basename(file, path.extname(file));
-      let { metadata, source } = await getPost(slug);
+      const slug = path.basename(file, path.extname(file));
+      const post = await getPost(slug);
       return {
-        metadata,
-        slug,
-        source,
+        metadata: post.metadata,
+        slug: post.slug,
+        source: post.source,
       };
     }),
   );
 }
 
-export async function getBlogPosts() {
+export async function getBlogPosts(): Promise<Post[]> {
   return getAllPosts(path.join(process.cwd(), "content"));
 }
