@@ -8,9 +8,9 @@ export const DATA = {
   location: "Bound Brook, NJ",
   locationLink: "https://www.google.com/maps/place/bound_brook",
   description:
-    "Full-stack web developer, skilled in React, Next.js, Node.js, and Express.js. Passionate about building scalable web solutions and improving user experiences. Experienced in developing custom websites and web applications for clients, focusing on responsive design and accessibility. ",
+    "Software engineering specializing in full-stack web development, primarily skilled in React, Next.js, Node.js, and Express.js. Passionate about building scalable web solutions and improving user experiences. Experienced in developing custom websites and web applications for clients, focusing on responsive design and accessibility. ",
   summary:
-    "Former restaurant server and expeditor. In 2023 went to full-stack coding bootcamp at Rutgers University, and traded serving food for serving code, managing an expo line for managing API endpoints, and creating a great dining experience for creating a great user experience. I'm a full-stack web developer, skilled in React, Next.js, Node.js, and Express.js. I'm passionate about building scalable web solutions and improving user experiences. I have experience developing custom websites and web applications for clients, focusing on responsive design and accessibility.",
+    "Former restaurant server and expediter. In 2023 went to full-stack coding bootcamp at Rutgers University, and traded serving food for serving code, managing an expo line for managing API endpoints, and creating a great dining experience for creating a great user experience. I'm a full-stack web developer, skilled in React, Next.js, Node.js, and Express.js. I'm passionate about building scalable web solutions and improving user experiences. Not only that, but I have experience developing custom websites and web applications for clients, focusing on responsive design and accessibility.",
   avatarUrl: "/me.jpg",
   skills: [
     "React",
@@ -27,7 +27,7 @@ export const DATA = {
     "Postgres",
     "Prisma",
     "TailwindCSS",
-    "Wordpress  ",
+    "Wordpress",
     "Docker",
   ],
   navbar: [

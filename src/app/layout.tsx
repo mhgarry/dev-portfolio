@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { Space_Grotesk as FontSans } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import "./globals.css";
+// import "./globals.css";
 
 import { Analytics } from "@vercel/analytics/react"
 
