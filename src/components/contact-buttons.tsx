@@ -16,7 +16,7 @@ export default function ContactFooter() {
           <RainbowButton className="w-full">Get In Touch</RainbowButton>
         </Link>
         <Link href="/my_resume.pdf" className="w-full sm:w-[45%]">
-          <RainbowButton className="w-full">Download Resume</RainbowButton>
+          <RainbowButton className="w-full">Visit the Blog</RainbowButton>
         </Link>
       </div>
       <RetroGrid />

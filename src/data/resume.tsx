@@ -4,7 +4,7 @@ import { HomeIcon, NotebookIcon } from "lucide-react";
 export const DATA = {
   name: "Matthew Garry",
   initials: "MHG",
-  url: "https://dev-portfolio-six-gold.vercel.app/",
+  url: "https://mhgdevelops.dev",
   location: "Bound Brook, NJ",
   locationLink: "https://www.google.com/maps/place/bound_brook",
   description:
@@ -36,6 +36,7 @@ export const DATA = {
   ],
   contact: {
     email: "matthewhgarry@gmail.com",
+    blog: "https://mhgdevelops.dev/blog",
     tel: "+1-(908)-229-2741",
     social: {
       GitHub: {
@@ -66,7 +67,7 @@ export const DATA = {
   work: [
     {
       company: "Ascent Digital Media",
-      location: "Clinton, New JErsey",
+      location: "Clinton, New Jersey",
       title: "Web Developer",
       logoUrl: "#",
       start: "October 2023",
@@ -77,7 +78,7 @@ export const DATA = {
 
     {
       company: "Freelance",
-      href: "http://localhost:3000",
+      href: "https://mhgdevelops.dev",
       badges: [],
       location: "Remote",
       title: "Full-Stack Web Developer",
@@ -126,29 +127,26 @@ export const DATA = {
       video: "/tasks.mp4",
     },
     {
-       title: "Posh Punk: Digital Emporium",
-       href: "https://github.com/mhgarry/posh_punk_dev",
+       title: "Moonlight Financial",
+       href: "https://moonlight-financial.com/",
        active: true,
        description:
-         "Posh Punk: Digital Emporium, is a passion project I'm making as a custom cms and e-shop for my fiancee. It's in development with no production deployment yet It showcases my Next.js, Typescript, Express.js skills among more.",
+       "Moonlight Financial is a website I built for a bookkeeping and accounting services business. Using Nextjs and TailwindCSS, I created a modern, responsive site that effectively showcases the company's services and expertise. The project involved designing a user-friendly interface, optimizing for SEO, and ensuring fast load times. This website serves as a key marketing tool for Moonlight Financial, helping them attract and engage potential clients online.",
       technologies: [
         "React",
         "Next.js",
-        "Node.js",
-        "Express.js",
-        "MongoDB",
         "TailwindCSS",
         "Node.js",
       ],
       links: [
         {
-          type: "E-commerce Platform",
-          href: "https://github.com/mhgarry/posh_punk_dev",
+          type: "Accounting and Bookkeeping Services",
+          href: "https://moonlight-financial.com/",
           icon: <Icons.globe className="size-3" />,
         },
       ],
-      image: "",
-      video: "/posh_punk.mp4",
+      image: "/moonlight.png",
+      video: "",
     },
     {
       title: "WriteMyReadme",

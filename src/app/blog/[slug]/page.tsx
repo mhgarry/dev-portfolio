@@ -49,8 +49,8 @@ export default async function BlogPost({ params }: { params: { slug: string } })
       </div>
 
       <article
-        className="prose dark:prose-invert prose-neutral"
-        dangerouslySetInnerHTML={{ __html: post.source }}
+        className="prose dark:prose-invert prose-neutral" // Add any additional prose classes as needed
+        dangerouslySetInnerHTML={{ __html: post.source }} 
       />
     </section>
   );
